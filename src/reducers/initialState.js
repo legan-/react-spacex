@@ -1,3 +1,10 @@
 export default {
-  key: ''
+  data: {
+    dragons: {},
+    rockets: {},
+    isLoading: false,
+    isReceived: false,
+  },
+  currentKind: '',
+  currentId: ''
 };

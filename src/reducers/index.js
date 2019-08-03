@@ -1,9 +1,18 @@
 import { combineReducers } from 'redux';
 
 import initialState from './initialState';
-// import TYPES from '../constants/ActionTypes';
+import TYPES from '../constants/ActionTypes';
 
-const key = (state = initialState.key, action) => {
+import data from './data';
+
+const currentKind = (state = initialState.currentKind, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+const currentId = (state = initialState.currentId, action) => {
   switch (action.type) {
     default:
       return state;
@@ -11,5 +20,7 @@ const key = (state = initialState.key, action) => {
 };
 
 export default combineReducers({
-  key
+  data,
+  currentKind,
+  currentId
 });
