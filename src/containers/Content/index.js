@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import {
   Wrapper,
-  Main,
 } from './components';
 
-import { name } from '~/config';
+import {
+  Buttons,
+  Card,
+  Grid,
+} from '../index'
 
-export default class Content extends Component {
-  state = {};
-
-  render() {
-    return (
-      <Wrapper>
-        <Main>
-          { name }
-        </Main>
-      </Wrapper>
-    );
-  }
+function Content() {
+  return (
+    <Wrapper>
+      <Buttons />
+      <Grid />
+      <Card />
+    </Wrapper>
+  );
 }
+
+export default Content;

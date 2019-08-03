@@ -23,8 +23,8 @@ export default () => describe('Content', () => {
   describe('layout', () => {
     const { wrapper } = setup();
 
-    it('should display <Main /> component', () => {
-      expect(wrapper.exists('Main')).toBeTruthy();
+    it('should display <Wrapper /> component', () => {
+      expect(wrapper.exists('Wrapper')).toBeTruthy();
     });
   });
 });
