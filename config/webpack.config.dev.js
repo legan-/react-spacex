@@ -37,6 +37,9 @@ module.exports = {
     },
   },
   plugins: [htmlPlugin, hmrPlugin],
+  resolve: {
+    alias: { 'react-dom': '@hot-loader/react-dom' }
+  },
   module: {
     rules: [
       {
