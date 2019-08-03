@@ -8,7 +8,7 @@ import {
   Buttons,
   Card,
   Grid,
-} from '../index'
+} from '../index';
 
 function Content() {
   return (

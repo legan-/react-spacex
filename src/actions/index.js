@@ -13,7 +13,7 @@ export const fetchData = () => dispatch => {
     api.getData(url)
       .then(parseReceivedData)
       .then(data => {
-        dispatch(actions.dataReceivedSuccess({ data, kind }));
+        dispatch(actions.dataReceivedSuccess({ [kind]: data }));
       })
       .catch(error => {
         // eslint-disable-next-line no-console
@@ -21,4 +21,16 @@ export const fetchData = () => dispatch => {
         dispatch(actions.dataReceivedFail());
       });
   });
+};
+
+export const toggleKind = kind => (dispatch, getState) => {
+  const {
+    currentKind
+  } = getState();
+
+  if (currentKind === kind) {
+    dispatch(actions.toggleKind());
+  } else {
+    dispatch(actions.toggleKind(kind));
+  }
 };

@@ -3,20 +3,13 @@ import { combineReducers } from 'redux';
 import initialState from './initialState';
 import TYPES from '../constants/ActionTypes';
 
-const rockets = (state = initialState.data.rockets, action) => {
-  switch (action.type) {
-    case TYPES.DATA_RECEIVED_SUCCESS: {
-      return action.payload.kind === 'rockets' ? { ...action.payload.data } : state;
-    }
-    default:
-      return state;
-  }
-};
-
-const dragons = (state = initialState.data.dragons, action) => {
+const byKind = (state = initialState.data.byKind, action) => {
   switch (action.type) {
     case TYPES.DATA_RECEIVED_SUCCESS:
-      return action.payload.kind === 'dragons' ? { ...action.payload.data } : state;
+      return {
+        ...state,
+        ...action.payload.data
+      };
     default:
       return state;
   }
@@ -44,8 +37,7 @@ const isReceived = (state = initialState.data.isReceived, action) => {
 };
 
 export default combineReducers({
-  rockets,
-  dragons,
+  byKind,
   isLoading,
   isReceived,
 });

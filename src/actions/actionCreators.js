@@ -4,14 +4,20 @@ export const requestData = () => ({
   type: TYPES.REQUEST_DATA
 });
 
-export const dataReceivedSuccess = ({ data, kind }) => ({
+export const dataReceivedSuccess = data => ({
   type: TYPES.DATA_RECEIVED_SUCCESS,
   payload: {
-    kind,
     data
   }
 });
 
 export const dataReceivedFail = () => ({
   type: TYPES.DATA_RECEIVED_FAIL
+});
+
+export const toggleKind = (kind = '') => ({
+  type: TYPES.TOGGLE_KIND,
+  payload: {
+    kind
+  }
 });

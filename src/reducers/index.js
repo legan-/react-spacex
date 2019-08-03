@@ -7,6 +7,8 @@ import data from './data';
 
 const currentKind = (state = initialState.currentKind, action) => {
   switch (action.type) {
+    case TYPES.TOGGLE_KIND:
+      return action.payload.kind;
     default:
       return state;
   }

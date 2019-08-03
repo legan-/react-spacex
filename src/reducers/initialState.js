@@ -1,7 +1,6 @@
 export default {
   data: {
-    dragons: {},
-    rockets: {},
+    byKind: {},
     isLoading: false,
     isReceived: false,
   },
