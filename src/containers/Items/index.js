@@ -19,12 +19,14 @@ import {
 
 Items.propTypes = {
   isCurrentKindPresented: TYPES.bool.isRequired,
+  currentId: TYPES.string.isRequired,
   currentKindData: TYPES.array.isRequired,
   toggleId: TYPES.func.isRequired,
 };
 
 export function Items({
   isCurrentKindPresented,
+  currentId,
   currentKindData,
   toggleId,
 }) {  
@@ -39,7 +41,8 @@ export function Items({
             key={ id }
             name={ name }
             image={ image }
-            onClick={ () => toggleId(id.toString()) }
+            isActive={ currentId === id }
+            onClick={ () => toggleId(id) }
           />
         ))
       }
@@ -49,6 +52,7 @@ export function Items({
 
 const mapStateToProps = state => ({
   isCurrentKindPresented: state.currentKind.length > 0,
+  currentId: state.currentId,
   currentKindData: currentKindDataSelector(state),
 });
 

@@ -11,16 +11,24 @@ import Typography from '@material-ui/core/Typography';
 DataCard.propTypes = {
   name: TYPES.string.isRequired,
   image: TYPES.string.isRequired,
+  isActive: TYPES.bool.isRequired,
   onClick: TYPES.func.isRequired
 };
 
-function DataCard({ name, image, onClick }) {
+function DataCard({
+  name,
+  image,
+  isActive,
+  onClick
+}) {
   return (
     <Grid
       item
       xs={ 6 }
     >
-      <Card>
+      <Card
+        raised={ isActive }
+      >
         <CardActionArea onClick={ onClick }>
           <CardMedia
             component='img'

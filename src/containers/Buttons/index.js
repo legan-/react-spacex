@@ -34,6 +34,7 @@ export function Buttons({
       <Typography
         variant='overline'
         display='block'
+        color='textSecondary'
         gutterBottom
       >
         kinds

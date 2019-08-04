@@ -15,15 +15,13 @@ export const fetchData = () => dispatch => {
       .then(data => {
         dispatch(actions.dataReceivedSuccess({ [kind]: data }));
       })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.error('fetchData:', error);
+      .catch(() => {
         dispatch(actions.dataReceivedFail());
       });
   });
 };
 
-export const toggleKind = kind => (dispatch, getState) => {
+export const toggleKind = (kind = '') => (dispatch, getState) => {
   const {
     currentKind
   } = getState();
@@ -31,7 +29,7 @@ export const toggleKind = kind => (dispatch, getState) => {
   dispatch(actions.toggleKind(currentKind === kind ? '' : kind));
 };
 
-export const toggleId = id => (dispatch, getState) => {
+export const toggleId = (id = '') => (dispatch, getState) => {
   const {
     currentId
   } = getState();

@@ -15,14 +15,14 @@ export const dataReceivedFail = () => ({
   type: TYPES.DATA_RECEIVED_FAIL
 });
 
-export const toggleKind = (kind = '') => ({
+export const toggleKind = kind => ({
   type: TYPES.TOGGLE_KIND,
   payload: {
     kind
   }
 });
 
-export const toggleId = (id = '') => ({
+export const toggleId = id => ({
   type: TYPES.TOGGLE_ID,
   payload: {
     id

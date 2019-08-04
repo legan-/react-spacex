@@ -7,15 +7,15 @@ export default receivedData => {
         rocket_name,
         type,
         rocket_type,
-        active,
         flickr_images: images,
+        description
       }) => {
         store[id] = {
-          id,
+          id: id.toString(),
           name: name || rocket_name,
           type: type || rocket_type,
-          active,
-          image: images[0]
+          image: images[0],
+          description
         };
 
         return store;
