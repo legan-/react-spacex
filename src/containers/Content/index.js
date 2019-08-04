@@ -7,14 +7,14 @@ import {
 import {
   Buttons,
   Card,
-  Grid,
+  Items,
 } from '../index';
 
 function Content() {
   return (
     <Wrapper>
       <Buttons />
-      <Grid />
+      <Items />
       <Card />
     </Wrapper>
   );

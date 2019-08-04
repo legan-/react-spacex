@@ -4,14 +4,16 @@ export default receivedData => {
       const byId = receivedData.reduce((store, {
         id,
         name,
+        rocket_name,
         type,
+        rocket_type,
         active,
         flickr_images: images,
       }) => {
         store[id] = {
           id,
-          name,
-          type,
+          name: name || rocket_name,
+          type: type || rocket_type,
           active,
           image: images[0]
         };
