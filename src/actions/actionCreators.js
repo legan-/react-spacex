@@ -21,3 +21,10 @@ export const toggleKind = (kind = '') => ({
     kind
   }
 });
+
+export const toggleId = (id = '') => ({
+  type: TYPES.TOGGLE_ID,
+  payload: {
+    id
+  }
+});

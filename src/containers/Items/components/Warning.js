@@ -9,7 +9,9 @@ Warning.propTypes = {
 
 function Warning({ message }) {
   return (
-    <Typography>
+    <Typography
+      variant='h6'
+    >
       { message }
     </Typography>
   );

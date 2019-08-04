@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 DataCard.propTypes = {
@@ -15,22 +16,30 @@ DataCard.propTypes = {
 
 function DataCard({ name, image, onClick }) {
   return (
-    <Card>
-      <CardActionArea onClick={ onClick }>
-        <CardMedia
-          component='img'
-          alt={ name }
-          title={ name }
-          height='150'
-          image={ image }
-        />
-        <CardContent>
-          <Typography gutterBottom>
-            { name }
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Grid
+      item
+      xs={ 6 }
+    >
+      <Card>
+        <CardActionArea onClick={ onClick }>
+          <CardMedia
+            component='img'
+            alt={ name }
+            title={ name }
+            height='150'
+            image={ image }
+          />
+          <CardContent>
+            <Typography
+              component='h6'
+              variant='h6'
+            >
+              { name }
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Grid>
   );
 }
 

@@ -28,9 +28,13 @@ export const toggleKind = kind => (dispatch, getState) => {
     currentKind
   } = getState();
 
-  if (currentKind === kind) {
-    dispatch(actions.toggleKind());
-  } else {
-    dispatch(actions.toggleKind(kind));
-  }
+  dispatch(actions.toggleKind(currentKind === kind ? '' : kind));
+};
+
+export const toggleId = id => (dispatch, getState) => {
+  const {
+    currentId
+  } = getState();
+
+  dispatch(actions.toggleId(currentId === id ? '' : id));
 };

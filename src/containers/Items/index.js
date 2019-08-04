@@ -3,13 +3,15 @@ import * as TYPES from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Grid from '@material-ui/core/Grid';
-
 import {
   DataCard,
   Warning,
   Wrapper,
 } from './components';
+
+import {
+  toggleId
+} from '~/src/actions';
 
 import {
   currentKindDataSelector
@@ -18,34 +20,29 @@ import {
 Items.propTypes = {
   isCurrentKindPresented: TYPES.bool.isRequired,
   currentKindData: TYPES.array.isRequired,
+  toggleId: TYPES.func.isRequired,
 };
 
 export function Items({
   isCurrentKindPresented,
   currentKindData,
+  toggleId,
 }) {  
 
   return (
     <Wrapper>
       { !isCurrentKindPresented && <Warning message='Please select one of the kinds above' /> }
       { isCurrentKindPresented && !currentKindData.length && <Warning message='List is empty' /> }
-      <Grid container spacing={ 4 }>
-        {
-          currentKindData.map(({ id, name, image }) => (
-            <Grid
-              key={ id }
-              item
-              xs={ 6 }
-            >
-              <DataCard
-                name={ name }
-                image={ image }
-                onClick={ () => console.log('name', id) }
-              />
-            </Grid>
-          ))
-        }
-      </Grid>
+      {
+        currentKindData.map(({ id, name, image }) => (
+          <DataCard
+            key={ id }
+            name={ name }
+            image={ image }
+            onClick={ () => toggleId(id.toString()) }
+          />
+        ))
+      }
     </Wrapper>
   );
 }
@@ -57,7 +54,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
-
+    toggleId
   }, dispatch),
 });
 

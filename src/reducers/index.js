@@ -16,6 +16,10 @@ const currentKind = (state = initialState.currentKind, action) => {
 
 const currentId = (state = initialState.currentId, action) => {
   switch (action.type) {
+    case TYPES.TOGGLE_ID:
+      return action.payload.id;
+    case TYPES.TOGGLE_KIND:
+      return '';
     default:
       return state;
   }
